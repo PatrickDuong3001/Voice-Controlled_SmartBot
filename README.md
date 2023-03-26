@@ -3,13 +3,14 @@
 ### A. Project Goals
 * A robot that can provide reliable lightings and mini-fan in case of emergencies or for decorations.
 * A robot that can measure the temperature if the users don't have a temperature meter or a reliable WIFI.
-* A robotic friend who listens and chats with us to lighten up our days or alleviate our boredom.  
+* A robotic friend who listens to and chats with us to lighten up our days or alleviate our boredom.  
 * A deeper unstanding of how different electronic components work and how to program then using C and C++.
 * Better electronic soldering and 3D design skills. 
 ### B. Technology
 * C and C++ programming languages
 * GitHub
 * AutoCAD
+* ARM Mbed LPC1768 Microcontroller 
 * Keil Studio Cloud Compiler
 * CLion IDE
 * Fritzing
