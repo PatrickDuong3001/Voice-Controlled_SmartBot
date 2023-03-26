@@ -11,5 +11,5 @@
 8. Temperature Sensor TMP36: https://learn.adafruit.com/tmp36-temperature-sensor/overview
 9. Barrel Jack: https://www.adafruit.com/product/373
 10. Battery Holder with Switch: https://www.adafruit.com/product/3859
-11. Resistors (1kΩ and 330Ω)
-12. Driver Transistor: https://www.sparkfun.com/products/521
+11. Driver Transistor: https://www.sparkfun.com/products/521
+12. Resistors (1kΩ and 330Ω)
