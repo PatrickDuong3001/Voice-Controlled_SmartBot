@@ -359,7 +359,7 @@ int main() {
             motorControl(motorMode, color);
             rchar = 0;
         } else if (rchar == 'I' || rchar == 'J') {  //show the temperature, what's the temperature
-            tempC = ((temp_sensor*3.3000)-0.20)*100.0000;
+            tempC = ((temp_sensor*3.3000)+0.18)*100.0000;
             tempF = (9.0 * tempC) / 5.0 + 32.0;
             uLCD.text_height(2);
             uLCD.text_width(2);
