@@ -32,31 +32,33 @@ volatile int color = WHITE; //default color
  * Function to perform special lighting mode for the robot when the user says "Show me firework".
  */
 void firework_perform() {
-    if (!stop_firework) {
-        if (brightness < 0) {
-            bLED = 0;
-            yLED = 0;
-            Thread::wait(50);
-            brightness = 1;
+    while(1) {
+        if (!stop_firework) {
+            if (brightness < 0) {
+                bLED = 0;
+                yLED = 0;
+                Thread::wait(500);
+                brightness = 1;
+            }
+            bLED = brightness;
+            Thread::wait(500);
+            brightness -= 0.1;
+            yLED = brightness;
+            Thread::wait(500);
+            brightness -= 0.1;
+            rLED = brightness;
+            Thread::wait(500);
+            brightness -= 0.1;
+            gLED = brightness;
+            Thread::wait(500);
+            brightness -= 0.1;
         }
-        bLED = brightness;
-        Thread::wait(50);
-        brightness -= 0.1;
-        yLED = brightness;
-        Thread::wait(50);
-        brightness -= 0.1;
-        rLED = brightness;
-        Thread::wait(50);
-        brightness -= 0.1;
-        gLED = brightness;
-        Thread::wait(50);
-        brightness -= 0.1;
     }
 }
 
 /*
  * Function to express the robot's facial expressions after the user says "Show me firework".
- * The robot displays expressions first before turn on the firework. 
+ * The robot displays expressions first before turn on the firework.
  */
 void led_indicator_animation(float waitTime, int color)
 {
@@ -66,21 +68,21 @@ void led_indicator_animation(float waitTime, int color)
     uLCD.circle(85,40,11,color);
     uLCD.circle(85,85,11,color);
     Thread::wait(waitTime);
-    uLCD.circle(85,40,6,color);  
+    uLCD.circle(85,40,6,color);
     uLCD.circle(85,85,6,color);
     Thread::wait(waitTime);
-    uLCD.circle(85,40,3,color);  
-    uLCD.circle(85,85,3,color);  
+    uLCD.circle(85,40,3,color);
+    uLCD.circle(85,85,3,color);
     Thread::wait(waitTime);
-    uLCD.circle(85,40,1,color);  
+    uLCD.circle(85,40,1,color);
     uLCD.circle(85,85,1,color);
     Thread::wait(waitTime);
 }
 
 /*
- * Function to perform normal face expression for the robot. 
+ * Function to perform normal face expression for the robot.
  */
-void face(int x1, int y1, int x2, int y2, int s1, int s2, int color) { 
+void face(int x1, int y1, int x2, int y2, int s1, int s2, int color) {
     //relax face: 85,40,15,G and 85, 85, 15, G
     uLCD.filled_circle(x1, y1, s1, color);
     uLCD.filled_circle(x1, y2, s2, color);
@@ -88,7 +90,7 @@ void face(int x1, int y1, int x2, int y2, int s1, int s2, int color) {
 
 /*
  * Function to perform different types of expressions for the robot.
- * Expressions include: smile, angry, and troll face. 
+ * Expressions include: smile, angry, and troll face.
  */
 void facial_animation(int type, int eyeColor) {
     if (type == 1) { //smile-relax face
@@ -116,7 +118,7 @@ void facial_animation(int type, int eyeColor) {
 }
 
 /*
- * Function to control the gearmotor of the robot. 
+ * Function to control the gearmotor of the robot.
  * There are 2 modes: stop and start.
  */
 void motorControl(int type, int eyeColor) {
@@ -134,16 +136,16 @@ void motorControl(int type, int eyeColor) {
 }
 
 /*
- * An interrupt that regularly check for the status of a pushbutton. 
- * This pushbutton allows the user to stop the motor manually. 
+ * An interrupt that regularly check for the status of a pushbutton.
+ * This pushbutton allows the user to stop the motor manually.
  */
 void stopMotor_hit_callback(void) {
-    motor.speed(0.0); 
+    motor.speed(0.0);
 }
 
 ////////////////////////////////////All response functions///////////////////////////////
 /*
- * Function to help robot express its answer for not being able to do something. 
+ * Function to help robot express its answer for not being able to do something.
  */
 void cannot() {
     speaking = true;
@@ -218,7 +220,7 @@ void sad() {
 }
 
 /*
- * Function to help robot tell the users a joke. 
+ * Function to help robot tell the users a joke.
  */
 void joke() {
     speaking = true;
@@ -233,15 +235,15 @@ void joke() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 /*
- * Main function for the robot. 
- * This function helps the robot listen to any user's commands and perform suitable actions. 
+ * Main function for the robot.
+ * This function helps the robot listen to any user's commands and perform suitable actions.
  * Say "Patrick" to get the robot ready to listen to commands.
  * After hearing the commands, the robot shows some facial expressions first before doing something.
- * 
- * Robot can perform many actions including: listen to commands, turn on/off LEDs, turn on/off fan, measure and show temperature, 
- * answer simple questions, and display its facial expressions.   
  *
- * To power up the robot, the user can use four AA batteries or use 5V wall adapter. 
+ * Robot can perform many actions including: listen to commands, turn on/off LEDs, turn on/off fan, measure and show temperature,
+ * answer simple questions, and display its facial expressions.
+ *
+ * To power up the robot, the user can use four AA batteries or use 5V wall adapter.
  */
 int main() {
     char rchar=0;
@@ -254,13 +256,14 @@ int main() {
     rLED = 0;
     float tempC = 0;
     float tempF = 0;
+    Thread firework_thread(firework_perform);
 
     //Interupts
-    led_ticker.attach(firework_perform, 0.3);
+    //led_ticker.attach(firework_perform, 0.3);
     stopMotorButton.mode(PullUp);
     stopMotorButton.attach_deasserted(&stopMotor_hit_callback);
     stopMotorButton.setSampleFrequency();
-    
+
     //set up uLCD for display
     uLCD.cls();
     uLCD.background_color(BLACK);
@@ -273,7 +276,7 @@ int main() {
         Thread::wait(200);
     }
     while (1) {
-        face(85,40,85,85,15,15,color); 
+        face(85,40,85,85,15,15,color);
         Thread::wait(200);
 
         device.putc('d'); //Start Recognition
@@ -281,7 +284,7 @@ int main() {
         if (device.getc() == 'r') {
             device.putc(' ');
             if (device.getc() == 'A') {
-                face(85,40,85,85,15,15,BLACK); 
+                face(85,40,85,85,15,15,BLACK);
                 face(85,40,90,85,13,17,color);
                 trigger = true;
                 t.start();
@@ -323,7 +326,7 @@ int main() {
             led_indicator_animation(200,color);
             rchar = 0;
         } else if (rchar == 'D') {  //yellow off
-            yLED = 0; 
+            yLED = 0;
             color = WHITE;
             rchar = 0;
         } else if (rchar == 'E') {  //show me firework
@@ -356,7 +359,7 @@ int main() {
             motorControl(motorMode, color);
             rchar = 0;
         } else if (rchar == 'I' || rchar == 'J') {  //show the temperature, what's the temperature
-            tempC = temp_sensor * 33;
+            tempC = ((temp_sensor*3.3000)-0.20)*100.0000;
             tempF = (9.0 * tempC) / 5.0 + 32.0;
             uLCD.text_height(2);
             uLCD.text_width(2);
@@ -408,7 +411,7 @@ int main() {
             rchar = 0;
         } else if (rchar == 'Z'){   //tell me a joke
             if (!speaking) {
-                sampletick.attach(&joke, 1.0 / 11025.0);   
+                sampletick.attach(&joke, 1.0 / 11025.0);
                 facial_animation(3, color);
                 Thread::wait(3000);
                 uLCD.cls();
