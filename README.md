@@ -58,4 +58,8 @@
 ![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/Robot's%20Cap.png)
 * A 265x154x120 cap to cover the internal electronic components of the robot. 
 * A 70x134 hole on the left so that the users can see the robot's lights.
-### D. Real-Life Image
+## 3. Real-Life PatriceBot
+* After months of sleepless nights, my brainchild was finally born. Let me introduce you to her - PatriceBot. 
+* She was born on April 6, 2023. Although she is a newborn robot, she can listen and talk very well. 
+* She's my very first robotic invention. I love her dearly.
+![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/Complete_Robot.png)
