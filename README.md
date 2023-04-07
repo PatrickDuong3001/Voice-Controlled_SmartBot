@@ -54,3 +54,8 @@
 * Right side:
 1. A 19x8 cylinder hole for the power wall adpater or the battery case's leads to go through.
 2. 2 puzzle-style holes to fit the positive joints of the front half for assembling purpose. 
+#### Cap
+![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/Robot's%20Cap.png)
+* A 265x154x120 cap to cover the internal electronic components of the robot. 
+* A 70x134 hole on the left so that the users can see the robot's lights.
+### D. Real-Life Image
