@@ -4,7 +4,7 @@
 * She was born on April 6, 2023. Although she is a newborn robot, she can listen and talk very well. 
 * She's my very first robotic invention. I love her dearly.
 
-[![PatriceBot](https://img.youtube.com/vi/ZkCpWQyvGq4/0.jpg)](https://youtu.be/ZkCpWQyvGq4)
+[![PatriceBot](https://img.youtube.com/vi/c-9QncJ2EAI/0.jpg)](https://youtu.be/c-9QncJ2EAI)
 ## 2. General Details
 ### A. Project Goals
 * A robot that can provide reliable lightings and mini-fan in case of emergencies or for decorations.
