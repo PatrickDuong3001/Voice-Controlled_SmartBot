@@ -1,5 +1,11 @@
 # Voice-Controlled SmartBot (PatriceBot)
-## 1. General Details
+## 1. Showcase
+* After months of sleepless nights, my brainchild was finally born. Let me introduce you to her - PatriceBot. 
+* She was born on April 6, 2023. Although she is a newborn robot, she can listen and talk very well. 
+* She's my very first robotic invention. I love her dearly.
+
+[![PatriceBot](https://img.youtube.com/vi/ZkCpWQyvGq4/0.jpg)](https://youtu.be/ZkCpWQyvGq4)
+## 2. General Details
 ### A. Project Goals
 * A robot that can provide reliable lightings and mini-fan in case of emergencies or for decorations.
 * A robot that can measure the temperature if the users don't have a temperature meter or a reliable WIFI.
@@ -17,7 +23,7 @@
 * Electronic Soldering
 * Ultimaker Cura
 * Ultimaker 3D Printer
-## 2. Technical Details
+## 3. Technical Details
 ### A. Complete Circuit
 ![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/SmartBot_Circuit.png)
 ### B. Electronic Components
@@ -58,8 +64,3 @@
 ![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/Robot's%20Cap.png)
 * A 265x154x120 cap to cover the internal electronic components of the robot. 
 * A 70x134 hole on the left so that the users can see the robot's lights.
-## 3. Real-Life PatriceBot
-* After months of sleepless nights, my brainchild was finally born. Let me introduce you to her - PatriceBot. 
-* She was born on April 6, 2023. Although she is a newborn robot, she can listen and talk very well. 
-* She's my very first robotic invention. I love her dearly.
-![Alt text](https://github.com/PatrickDuong3001/Voice-Controlled_SmartBot/blob/master/Complete_Robot.png)
